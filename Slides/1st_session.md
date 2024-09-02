@@ -54,25 +54,25 @@ Materials will be available from GitHub, also mirrored on OSF:
 
 # Course schedule
 
-September 4 (Wed), 09:30-11:30: Introduction and basics
+September 4 (Wed), 09:30-11:30, Introduction and basics
 
-September 4 (Wed), 13:30-15:30: Descriptive statistics
+September 4 (Wed), 13:30-15:30, Descriptive statistics
 
-September 5 (Thu), 14:00-15:00: Tutorial 
+September 5 (Thu), 14:00-15:00, Tutorial 
 
-September 6 (Fri), 09:30-11:30: Data visualization
+September 6 (Fri), 09:30-11:30, Data visualization
 
-September 6 (Fri), 13:30-15:30: Data handling
+September 6 (Fri), 13:30-15:30, Data handling
 
-September 9 (Mon), 09:30-11:30: Programming (1)
+September 9 (Mon), 09:30-11:30, Programming (1)
 
-September 11 (Wed), 13:30-15:30: Programming (2)
+September 11 (Wed), 13:30-15:30, Programming (2)
 
-September 12 (Thu), 14:00-15:00: Tutorial
+September 12 (Thu), 14:00-15:00, Tutorial
 
-September 13 (Fri), 09:30-11:30: Programming (3)
+September 13 (Fri), 09:30-11:30, Programming (3)
 
-October 18 (Fri), 09:30-11:30: Example
+October 18 (Fri), 09:30-11:30, Example
 
 # Types of session
 
@@ -151,7 +151,7 @@ use two or more!
 
 # Other dates
 
-September 26 (Fri), 13:00-17:00: Social Demography Recruitment Day (prelim. title)
+September 26 (Thu), 13:00-17:00: Social Demography Recruitment Day (prelim. title)
 
 # What is R?
 
