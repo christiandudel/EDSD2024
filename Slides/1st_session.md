@@ -44,7 +44,6 @@ Materials will be available from GitHub, also mirrored on OSF:
 
 - Email: dudel@demogr.mpg.de
 - Office: 359 (3rd floor, east wing)
-- Twitter: @c_dudel
 - Website: http://www.christiandudel.com
 
 # Things I work on/I am interested in
