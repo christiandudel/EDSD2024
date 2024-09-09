@@ -18,19 +18,16 @@ In this course, we will use two programs:
 
 First install R, then install RStudio.
 
-## Course schedule
+## Course schedule (updated)
 
 * September 4 (Wed), 09:30-11:30: Basics
 * September 4 (Wed), 13:30-15:30: Descriptive statistics
-* September 5 (Thu), 14:00-15:00: Tutorial 
-* September 6 (Fri), 09:30-11:30: Data visualization
-* September 6 (Fri), 13:30-15:30: Data handling
-* September 9 (Mon), 09:30-11:30: Programming (1)
-* September 11 (Wed), 13:30-15:30: Programming (2)
-* September 12 (Thu), 14:00-15:00: Tutorial
-* September 13 (Fri), 09:30-11:30: Programming (3)
+* September 9 (Mon), 09:30-11:30: Data visualization
+* September 11 (Wed), 13:30-15:30: Data handling
+* September 12 (Thu), 14:00-16:00: Programming (1)
+* September 13 (Fri), 09:30-11:30: Programming (2)
+* September 13 (Fri), 13:30-15:30: Programming (3)
 * October 18 (Fri), 09:30-11:30: Example
-
 
 ## Helpful resources
 
