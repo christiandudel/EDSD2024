@@ -104,7 +104,7 @@
                             Deaths=total_deaths_per_million)
 
   # Edit data: Select countries
-  countrylist <- c("Germany","Sweden","United States","Taiwan")
+  countrylist <- c("Germany","Sweden","United States")
   covid <- covid |> filter(Country%in%countrylist)
 
   # Edit data: Select dates since February 2020
