@@ -14,36 +14,46 @@
   prop.table(tab1)
 
   # Using pipes
-  library(tidyverse)
-  birthwt$smoke %>% table() %>% prop.table()
+  birthwt$smoke |> table() |> prop.table()
 
-  # object %>% foo
+  # object |> foo
   # is equivalent to
   # foo(object)
+
+  # Placeholder for arguments
+  birthwt$smoke |> table(x=_) |> prop.table(x=_)
+
+  # Alternative: magrittr-pipes, works slightly different
+  library(magrittr)
+  birthwt$smoke %>% table %>% prop.table
+  birthwt$smoke %>% table(x=.) %>% prop.table(x=.)
 
 
 ### Data editing, first example #####################################
 
+  # Load tidy packages
+  library(tidyverse)
+
   # Outlier?
-  birthwt %>% ggplot(aes(x=age,y=bwt))+
+  birthwt |> ggplot(aes(x=age,y=bwt))+
               geom_point()+
               geom_smooth(method="lm")
 
   # Filtering
-  birthwt %>% filter(age<40) %>%
+  birthwt |> filter(age<40) |>
               ggplot(aes(x=age,y=bwt))+
               geom_point()+
               geom_smooth(method="lm")
 
   # Removing from data
   summary(birthwt$age) # Age above 40 is still there
-  birthwt <- birthwt %>% filter(age<40)
+  birthwt <- birthwt |> filter(age<40)
   summary(birthwt$age) # Now removed from data
   data(birthwt) # Reloading data
   summary(birthwt$age) # There again
 
   # Missing values
-  birthwt <- birthwt %>% mutate(age=na_if(age,45))
+  birthwt <- birthwt |> mutate(age=na_if(age,45))
   summary(birthwt$age)
 
   # Careful with missing values!
@@ -51,15 +61,15 @@
   mean(birthwt$age,na.rm=T)
 
   # Creating new variables (1st example)
-  birthwt <- birthwt %>% mutate(low=as.numeric(bwt<2500))
-  birthwt$low %>% table() %>% prop.table()
+  birthwt <- birthwt |> mutate(low=as.numeric(bwt<2500))
+  birthwt$low |> table() |> prop.table()
 
   # Recoding variable
   birthwt$low <- recode(birthwt$low,'0'="Normal",'1'="Low")
-  birthwt$low %>% table() %>% prop.table()
+  birthwt$low |> table() |> prop.table()
 
   # Creating new variables (2nd example)
-  birthwt <- birthwt %>% mutate(agesquared=age^2)
+  birthwt <- birthwt |> mutate(agesquared=age^2)
 
 
 ### Second example, also extending ggplot2 ##########################
@@ -81,26 +91,26 @@
   head(covid)
 
   # Check countries in data
-  covid %>% pull(location) %>% unique()
+  covid |> pull(location) |> unique()
 
   # Edit data: Restrict variables
-  covid <- covid %>% select(location,
+  covid <- covid |> select(location,
                             date,
                             total_deaths_per_million)
 
   # Edit data: Change variable names
-  covid <- covid %>% rename(Country=location,
+  covid <- covid |> rename(Country=location,
                             Date=date,
                             Deaths=total_deaths_per_million)
 
   # Edit data: Select countries
   countrylist <- c("Germany","Sweden","United States","Taiwan")
-  covid <- covid %>% filter(Country%in%countrylist)
+  covid <- covid |> filter(Country%in%countrylist)
 
   # Edit data: Select dates since February 2020
   class(covid$Date) # Check that it is really a date
   range(covid$Date) # Earliest and latest date
-  covid <- covid %>% filter(Date>="2020-02-01")
+  covid <- covid |> filter(Date>="2020-02-01")
 
   # Start plotting
   fig1 <-  ggplot(data=covid,
@@ -115,7 +125,7 @@
             "#fdc086")
   fig1 <- ggplot(data=covid,
                  mapping=aes(x=Date,y=Deaths,color=Country))+
-    geom_line(size=1)+
+    geom_line(linewidth=1)+
     labs(x="Date",
          y="Deaths/million",
          title="COVID-19 deaths per million inhabitants",
