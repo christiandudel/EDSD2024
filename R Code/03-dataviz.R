@@ -2,7 +2,7 @@
 
 ### Load ggplot2 ####################################################
 
-  # To learn more about ggplot2: 
+  # To learn more about ggplot2:
   # https://ggplot2.tidyverse.org/
   # https://ggplot2-book.org/
 
@@ -32,7 +32,7 @@
   fig1 <- ggplot(data=birthwt)
   fig1 <- fig1+geom_point(aes(x=age,y=bwt))
 
-  
+
 ### Options (examples) ##############################################
 
   # Labels
@@ -46,9 +46,9 @@
   # Limits of axes
   fig1 <- fig1+lims(x=c(10,55),y=c(500,5500))
 
-  
+
 ### More layers: Smoothing ##########################################
-  
+
   # Adding a smoothing layer
   fig1 <- ggplot(data=birthwt)+
     geom_point(aes(x=age,y=bwt))+
@@ -75,27 +75,33 @@
 
 
 ### Facets ##########################################################
-  
+
   fig1 <- ggplot(data=birthwt)+
           geom_point(aes(x=age,y=bwt))+
           facet_wrap(~smoke)
   fig1
 
-  
+
 ### Combination of things ###########################################
-  
+
   fig1 <- ggplot(data=birthwt,mapping=aes(x=age,y=bwt))
   fig1 <- fig1+geom_point()
   fig1 <- fig1+geom_smooth(method="lm",se=F)
   fig1 <- fig1+labs(x="Age",y="Birth weight")
   fig1 <- fig1+facet_wrap(~smoke)
   fig1
-  
+
 
 ### Saving ##########################################################
-  
+
   # File extension sets type of graphic (here: pdf)
   ggsave(file="C:/Users/Christian/Desktop/test.pdf",
+         plot=fig1)
+
+  # Some file extensions require you to install additional packages
+  # install.packages("svglite")
+  library(svglite)
+  ggsave(file="C:/Users/Christian/Desktop/test.svg",
          plot=fig1)
 
 
@@ -103,7 +109,7 @@
 
   # Basic scatter plot
   plot(x=birthwt$age,y=birthwt$bwt)
-  
+
   # Scatter plot with some options
   plot(x=birthwt$age,y=birthwt$bwt,
        main="Scatter plot",
@@ -112,9 +118,9 @@
        pch=16,
        cex=1.5,
        col=rgb(0,0,0,alpha=0.5),
-       panel.first=grid()) 
+       panel.first=grid())
 
-  # Saving base R: Devices 
+  # Saving base R: Devices
   pdf(file="C:/Graphics/fig1.pdf")
   plot(birthwt$age,birthwt$bwt)
   dev.off()
