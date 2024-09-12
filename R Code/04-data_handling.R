@@ -46,26 +46,28 @@
               geom_smooth(method="lm")
 
   # Removing from data
-  summary(birthwt$age) # Age above 40 is still there
+  birthwt$age |> summary() # Age above 40 is still there
   birthwt <- birthwt |> filter(age<40)
-  summary(birthwt$age) # Now removed from data
+  birthwt$age |> summary() # Now removed from data
   data(birthwt) # Reloading data
-  summary(birthwt$age) # There again
+  birthwt$age |> summary() # There again
 
   # Missing values
   birthwt <- birthwt |> mutate(age=na_if(age,45))
-  summary(birthwt$age)
+  birthwt$age |> summary()
 
   # Careful with missing values!
-  mean(birthwt$age)
-  mean(birthwt$age,na.rm=T)
+  birthwt$age |> mean()
+  birthwt$age |> mean(ma.rm=T)
 
   # Creating new variables (1st example)
   birthwt <- birthwt |> mutate(low=as.numeric(bwt<2500))
   birthwt$low |> table() |> prop.table()
 
   # Recoding variable
-  birthwt$low <- recode(birthwt$low,'0'="Normal",'1'="Low")
+  birthwt$low <- recode(birthwt$low,
+                        '0'="Normal",
+                        '1'="Low")
   birthwt$low |> table() |> prop.table()
 
   # Creating new variables (2nd example)
@@ -74,7 +76,9 @@
   # Using this workflow to create nice tables
   #install.packages("gt")
   library(gt)
-  birthwt$smoke <- recode(birthwt$smoke,'0'="Did not smoke",'1'="Smoked")
+  birthwt$smoke <- recode(birthwt$smoke,
+                          '0'="Did not smoke",
+                          '1'="Smoked")
   birthwt |>
     count(smoke,low) |>
     rename("Smoking"="smoke",
