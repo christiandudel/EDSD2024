@@ -71,6 +71,20 @@
   # Creating new variables (2nd example)
   birthwt <- birthwt |> mutate(agesquared=age^2)
 
+  # Using this workflow to create nice tables
+  #install.packages("gt")
+  library(gt)
+  birthwt$smoke <- recode(birthwt$smoke,'0'="Did not smoke",'1'="Smoked")
+  birthwt |>
+    count(smoke,low) |>
+    rename("Smoking"="smoke",
+           "Low weight"="low") |>
+    mutate(P=prop.table(n)) |>
+    gt() |>
+    tab_header(title = "Smoking and low birth weight") |>
+    fmt_number(columns = n,decimals=0) |>
+    fmt_percent(columns = P)
+
 
 ### Second example, also extending ggplot2 ##########################
 
