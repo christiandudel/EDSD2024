@@ -93,6 +93,14 @@
 
 ### Indexing ########################################################
 
+  # Vectors
+  vector1 <- 1:10
+  vector1[2]
+  vector1[4:5]
+  vector2 <- c("Alpha","Beta","Gamma","Delta")
+  vector2[2:3]
+  vector2[c(1,4)]
+
   # For comparison
   bwt1 <- as.data.frame(birthwt)
   bwt2 <- as_tibble(birthwt)
