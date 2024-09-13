@@ -106,6 +106,26 @@
   rnorm(10)
   rnorm(10,mean=2,sd=5)
 
+  # Sampling from a vector
+  sample(x=1:10,
+         size=2,
+         replace=FALSE)
+
+  sample(x=1:10,
+         size=100,
+         replace=TRUE)
+
+  people <- c("Anna","Bobby","Charles","Donna","Ezra")
+  sample(x=people,
+         size=2,
+         replace=FALSE)
+
+  # Seeds
+  set.seed(132)
+  rnorm(1)
+  set.seed(132)
+  rnorm(1)
+
 
 ### Simple example combining a few things ###########################
 
